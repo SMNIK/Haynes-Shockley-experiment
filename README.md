@@ -9,7 +9,7 @@
 
 ***photo electric effect (laser beam) causes the drift mobility of minority charge carriers sweeps length of the semiconductor.***
 
-Important fields are:***lifetime, drift velocity, electric field***
+Important fields are: ***lifetime, drift velocity, electric field***
 <hr>
 <h3>Measurment of drift velocity</h3>
 <p>
