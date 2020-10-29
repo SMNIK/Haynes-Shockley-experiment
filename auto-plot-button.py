@@ -22,32 +22,32 @@ def getExcel ():
     SMN1 = pd.read_excel (import_file_path, sheet_name='14.4v')
     print(SMN1)
     SMN1 = SMN1.iloc[250:4238] # set row
-    plt.plot(SMN1['x1'],SMN1['y1']) # set plot (chooses columns)
+    plt.plot(SMN1['x'],SMN1['y']) # set plot (chooses columns)
     
     SMN2 = pd.read_excel (import_file_path, sheet_name='20.9v')
     print(SMN2)
     SMN2 = SMN2.iloc[250:4238]
-    plt.plot(SMN2['x2'],SMN2['y2'])
+    plt.plot(SMN2['x'],SMN2['y'])
     
     SMN3 = pd.read_excel (import_file_path, sheet_name='28.1v')
     print(SMN3)
     SMN3 = SMN3.iloc[250:4238]
-    plt.plot(SMN3['x3'],SMN3['y3'])
+    plt.plot(SMN3['x'],SMN3['y'])
     
     SMN4 = pd.read_excel (import_file_path, sheet_name='36.4v')
     print(SMN4)
     SMN4 = SMN4.iloc[250:4238] 
-    plt.plot(SMN4['x4'],SMN4['y4'])
+    plt.plot(SMN4['x'],SMN4['y'])
     
     SMN5 = pd.read_excel (import_file_path, sheet_name='44.7v')
     print(SMN5)
     SMN5 = SMN5.iloc[250:4238]
-    plt.plot(SMN5['x5'],SMN5['y5'])
+    plt.plot(SMN5['x'],SMN5['y'])
     
     SMN6 = pd.read_excel (import_file_path, sheet_name='50v')
     print(SMN6)
     SMN6 = SMN6.iloc[250:4238]
-    plt.plot(SMN6['x6'],SMN6['y6'])
+    plt.plot(SMN6['x'],SMN6['y'])
     
     # set lables
     plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')

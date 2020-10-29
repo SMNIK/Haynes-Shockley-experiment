@@ -25,12 +25,12 @@ fifth = fifth.iloc[250:4238]
 sixth = sixth.iloc[250:4238]
 
 # set plot
-plt.plot(first['x1'], first['y1'])
-plt.plot(second['x2'], second['y2'])
-plt.plot(third['x3'], third['y3'])
-plt.plot(fourth['x4'], fourth['y4'])
-plt.plot(fifth['x5'], fifth['y5'])
-plt.plot(sixth['x6'], sixth['y6'])
+plt.plot(first['x'], first['y'])
+plt.plot(second['x'], second['y'])
+plt.plot(third['x'], third['y'])
+plt.plot(fourth['x'], fourth['y'])
+plt.plot(fifth['x'], fifth['y'])
+plt.plot(sixth['x'], sixth['y'])
 
 # set lable
 plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
