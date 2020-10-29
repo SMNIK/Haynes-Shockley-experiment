@@ -49,12 +49,9 @@ Important fields are: ***lifetime, drift velocity, electric field***
 ![config](./images/flight-peaks.png)
 
 <hr>
-<h3>Coding structure (or how to code)</h3>
-<h4>First step</h4>
-> How to code a simple project and improve it?
-<p>
-
-</p>
 </body>
 </html>
 
+# Coding structure (or how to code)
+### First step
+> How to code a simple project and improve it?
