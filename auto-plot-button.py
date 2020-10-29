@@ -18,35 +18,36 @@ def getExcel ():
     global SMN
     
     import_file_path = filedialog.askopenfilename()
-    df1 = pd.read_excel (import_file_path, sheet_name='14.4v')
-    print(df1)
-    df1 = df1.iloc[250:4238] # set row
-    plt.plot(df1['x1'],df1['y1']) # set plot (chooses columns)
     
-    df2 = pd.read_excel (import_file_path, sheet_name='20.9v')
-    print(df2)
-    df2 = df2.iloc[250:4238]
-    plt.plot(df2['x2'],df2['y2'])
+    SMN1 = pd.read_excel (import_file_path, sheet_name='14.4v')
+    print(SMN1)
+    SMN1 = SMN1.iloc[250:4238] # set row
+    plt.plot(SMN1['x1'],SMN1['y1']) # set plot (chooses columns)
     
-    df3 = pd.read_excel (import_file_path, sheet_name='28.1v')
-    print(df3)
-    df3 = df3.iloc[250:4238]
-    plt.plot(df3['x3'],df3['y3'])
+    SMN2 = pd.read_excel (import_file_path, sheet_name='20.9v')
+    print(SMN2)
+    SMN2 = SMN2.iloc[250:4238]
+    plt.plot(SMN2['x2'],SMN2['y2'])
     
-    df4 = pd.read_excel (import_file_path, sheet_name='36.4v')
-    print(df4)
-    df4 = df4.iloc[250:4238] 
-    plt.plot(df4['x4'],df4['y4'])
+    SMN3 = pd.read_excel (import_file_path, sheet_name='28.1v')
+    print(SMN3)
+    SMN3 = SMN3.iloc[250:4238]
+    plt.plot(SMN3['x3'],SMN3['y3'])
     
-    df5 = pd.read_excel (import_file_path, sheet_name='44.7v')
-    print(df5)
-    df5 = df5.iloc[250:4238]
-    plt.plot(df5['x5'],df5['y5'])
+    SMN4 = pd.read_excel (import_file_path, sheet_name='36.4v')
+    print(SMN4)
+    SMN4 = SMN4.iloc[250:4238] 
+    plt.plot(SMN4['x4'],SMN4['y4'])
     
-    df6 = pd.read_excel (import_file_path, sheet_name='50v')
-    print(df6)
-    df6 = df6.iloc[250:4238]
-    plt.plot(df6['x6'],df6['y6'])
+    SMN5 = pd.read_excel (import_file_path, sheet_name='44.7v')
+    print(SMN5)
+    SMN5 = SMN5.iloc[250:4238]
+    plt.plot(SMN5['x5'],SMN5['y5'])
+    
+    SMN6 = pd.read_excel (import_file_path, sheet_name='50v')
+    print(SMN6)
+    SMN6 = SMN6.iloc[250:4238]
+    plt.plot(SMN6['x6'],SMN6['y6'])
     
     # set lables
     plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
