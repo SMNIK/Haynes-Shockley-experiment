@@ -55,3 +55,5 @@ Important fields are: ***lifetime, drift velocity, electric field***
 # Coding structure (or how to code)
 ### First step
 > How to code a simple project and improve it?
+1) The first point is considering that we have an excel file of data with few sheets, which we need to plot them as x and y axes. So, the first idea is the "flights.py" file, with repetitive lines. 
+2)
