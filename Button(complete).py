@@ -20,11 +20,11 @@ def getExcel():
     import_file_path = filedialog.askopenfilename()
     xls = xlrd.open_workbook(import_file_path, on_demand=True)
     sheetNames = xls.sheet_names()
-    for x in sheetNames:
-        SMN = pd.read_excel(import_file_path, x)
+    for i in sheetNames:
+        SMN = pd.read_excel(import_file_path, i)
         SMN = SMN.iloc[250:4238]
         print(SMN)
-        plt.plot(SMN['X'], SMN['y'])
+        plt.plot(SMN['x'], SMN['y'])
         plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
         plt.ylabel('Voltage (v)')
         plt.title('non-fit')
