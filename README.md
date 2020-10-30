@@ -10,7 +10,7 @@
 ***photo electric effect (laser beam) causes the drift mobility of minority charge carriers sweeps length of the semiconductor.***
 
 Important fields are: ***lifetime, drift velocity, electric field***
-<hr>
+
 <h3>Measurment of drift velocity</h3>
 <p>
   E<sub>s</sub> is an internal electric pulse field that produced by a pulsed generator. Distance between optical fiber and needle (<ins>point contact</ins>) is <em>d</em>.  V<sub>s</sub> is the electrical pulls and V<sub>l</sub> is the laser pulls. The lasr pulls causes 2 small peak between up and down main semiconductor peak. The second peak is the wider and relevant to minority carriers.
@@ -42,7 +42,7 @@ Important fields are: ***lifetime, drift velocity, electric field***
 </table>
 
 <p> The semiconductor sample is a thin bar (approximately 3x3x30 mm) of single crystal ingot.</p>
-<hr>
+
 <h3>Measurement of the time of flight t</h3>
 <p> Due to the constant of the distance and the moving fields, the flight time is also constant, which does not depend on the density of the laser pulse. so light pulse just increases the peak of the graph relevant to the voltage. Despite the fact that t is grown by increasing inject charge density.</p>
 
