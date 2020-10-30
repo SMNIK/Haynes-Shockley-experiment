@@ -5,7 +5,7 @@
 - the effect of the distance electrodes on the production of electrons and holes.
 - measuring of carrier's lifetime.
 
-![config](./image.jpg)
+![config](./images/image.jpg)
 
 ***photo electric effect (laser beam) causes the drift mobility of minority charge carriers sweeps length of the semiconductor.***
 
