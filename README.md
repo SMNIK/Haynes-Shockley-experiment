@@ -56,4 +56,5 @@ Important fields are: ***lifetime, drift velocity, electric field***
 ### First step
 > How to code a simple project and improve it?
 1) The first point is considering that we have an excel file of data with few sheets, which we need to plot them as x and y axes. So, the first idea is the "flights.py" file, with repetitive lines. 
-2)
+2) The second point is to creat the auto key that read the excel file with browser (auto-plot-button.py and ...button2.py).
+3) in the third part the idea is the key knows any x and y sheet of any file and plot it automaticly.
