@@ -25,7 +25,7 @@ def getExcel():
         SMN = SMN.iloc[250:4238]
         print(i) # if put SMN the consol shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key so plot is ready
         plt.plot(SMN['x'], SMN['y'])
-        plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
+        plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
         plt.ylabel('Voltage (v)')
         plt.title('non-fit')
         plt.legend(sheetNames, fontsize=10, loc='upper right')

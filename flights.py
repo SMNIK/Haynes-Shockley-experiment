@@ -33,7 +33,7 @@ plt.plot(fifth['x'], fifth['y'])
 plt.plot(sixth['x'], sixth['y'])
 
 # set lable
-plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
+plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
 plt.ylabel('Voltage (v)')
 plt.title('non-fit')
 plt.legend(["14.4v", "20.9v", "28.1v", "36.4v", "44.7v", "50v"], fontsize=10, loc='upper right')
