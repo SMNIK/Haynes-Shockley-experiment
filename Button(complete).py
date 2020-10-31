@@ -23,12 +23,12 @@ def getExcel():
     for i in sheetNames:
         SMN = pd.read_excel(import_file_path, i)
         SMN = SMN.iloc[250:4238]
-        print(SMN)
+        print(i) # if put SMN the consol shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key so plot is ready
         plt.plot(SMN['x'], SMN['y'])
         plt.xlabel('Time (t) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
         plt.ylabel('Voltage (v)')
         plt.title('non-fit')
-        plt.legend(["14.4v","20.9v","28.1v","36.4v","44.7v","50v"], fontsize=10, loc='upper right')
+        plt.legend(sheetNames, fontsize=10, loc='upper right')
         
 browseButton_Excel = tk.Button(text='Select Excel File', command=getExcel, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
 canvas1.create_window(100, 100, window=browseButton_Excel)
