@@ -42,7 +42,6 @@ def getExcel():
 """ I difined the column's names as below, you can change them. """
         x = ar(SMN['x'])
         y = ar(SMN['y'])
-        
 """ The fitting GaussAmp function could be use as below. """
         n = len(x) # the number of data
         mean = sum(x*y)/n # 
