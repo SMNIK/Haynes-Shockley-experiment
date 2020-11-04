@@ -5,9 +5,55 @@ Created on Tue Nov  3 17:46:21 2020
 @author: masou
 """
 
+# FIRST PART (practice and find the solution)
+
+import numpy as np
 import pandas as pd
-import matplotlib as plt
-from scipy import asarray as ar, exp
+import matplotlib.pyplot as plt
+from scipy import asarray as ar,exp
+from scipy.optimize import curve_fit
+
+sixth = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '50v')
+
+x=sixth['x'][500:2000]
+y=sixth['y'][500:2000]
+
+#plt.plot(x,y)
+
+
+n = len(x)                          #the number of data
+mean = sum(x*y)/n                   #note this correction
+sigma = sum(y*(x-mean)**2)/n        #note this correction
+def gauss(x,a,x0,sigma):
+    return (a*exp(-(x-x0)**2/(2*sigma**2)))
+#print()
+popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
+plt.plot(x,y)
+plt.plot(x,gauss(x,*popt),color='black',linewidth=1)
+plt.legend()
+
+b=sixth['y'].max()
+print("Max value of y:",b)
+
+c=sixth['y'].idxmax()
+print(c)
+
+d=sixth['x'][c]
+print(d)
+
+#b=sixth.iloc[a]
+#print(b)
+
+
+
+#_______________________________________________#
+
+
+
+# SECOND PART 
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 import xlrd
 import tkinter as tk
 from tkinter import filedialog
@@ -18,7 +64,7 @@ Create a fit function for each figure.
 """
 
 root = tk.Tk()
-canvas1 = tk.canvas(root, width=200, height=200, bg="lightgrey")
+canvas1 = tk.Canvas(root, width=200, height=200, bg='lightgrey')
 canvas1.pack()
 
 """
@@ -48,17 +94,19 @@ the match a fit function and its coefficients.
 """
         x = SMN['x']
         y = SMN['y']
-
-        n = len(x)
-        mean = sum(x*y)/n
-        c = sum(y*(x-mean)**2)/n
-        def gauss(x,a,x0,c):
-            return (a*exp(-(x-x0)**2/(2*c**2)))
-        popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,c])
+        
+        n = len(x)                          #the number of data
+        mean = sum(x*y)/n                   #note this correction
+        sigma = sum(y*(x-mean)**2)/n        #note this correction
+        def gauss(x,a,x0,sigma):
+            return (a*exp(-(x-x0)**2/(2*sigma**2)))
+        #print()
+        popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
+        print(gauss)
         plt.plot(x,y,label=i)
         plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
         plt.legend()
-        
+        print()
 """
 Now we finish it with closing the key.
 for showing the plots and fits after coplete calculation close the key
