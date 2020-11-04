@@ -48,3 +48,11 @@ the match a fit function and its coefficients.
 """
 x = SMN['x']
 y = SMN['y']
+
+n = len(x)
+mean = sum(x*y)/n
+c = sum(y*(x-mean)**2)/n
+def gauss(x,a,x0,c):
+    return (a*exp(-(x-x0)**2/(2*c**2)))
+popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,c])
+plt.plot(x,y,label=i)

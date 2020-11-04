@@ -9,7 +9,7 @@ Created on Mon Nov  2 14:57:54 2020
 import numpy as np
 import csv
 import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
+#from scipy.optimize import curve_fit
 import tkinter as tk
 import tkinter as filedialog
 import pandas as pd
@@ -18,6 +18,7 @@ import pandas as pd
 root = tk.Tk()
 canvas1 = tk.Canvas(root, width=200, height=200, bg='lightgrey')
 canvas1.pack()
+
 
 def getCsv():
     global SMN
