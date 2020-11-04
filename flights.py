@@ -9,11 +9,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # set directory
-first = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '14.4v')
-second = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '20.9v')
-third = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '28.1v')
-fourth = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '36.4v')
-fifth = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '50v')
+first = pd.read_excel(r'\total-datas.xlsx', '14.4v')
+second = pd.read_excel(r'\total-datas.xlsx', '20.9v')
+third = pd.read_excel(r'\total-datas.xlsx', '28.1v')
+fourth = pd.read_excel(r'\total-datas.xlsx', '36.4v')
+fifth = pd.read_excel(r'\total-datas.xlsx', '50v')
 
 # set row
 first = first.iloc[250:4238]
