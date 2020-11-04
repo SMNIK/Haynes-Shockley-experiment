@@ -66,4 +66,4 @@ Then in the second part the auto key read whole datas and prepaire the fit for e
 
 ![config](./images/fit-example.png)
 
-![config](./images/flight-peaks.png)
+![config](./images/peaks and fits.png)
