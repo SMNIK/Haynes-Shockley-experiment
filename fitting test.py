@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from scipy import asarray as ar,exp
 from scipy.optimize import curve_fit
 
-sixth = pd.read_excel(r'D:\material physics & nanoscience(bologna uni)\1semester(2018-19)\Labratory of condensed matter Physics (prof.Beatrice Fraboni)\HS(Haynes-Shockley)\pytho.H-S\total-datas.xlsx', '50v')
+sixth = pd.read_excel(r'/total-datas.xlsx', '50v')
 
 x=sixth['x'][500:2000]
 y=sixth['y'][500:2000]
