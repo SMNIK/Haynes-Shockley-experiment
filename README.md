@@ -63,6 +63,7 @@ Important fields are: ***lifetime, drift velocity, electric field***
 For creat fit for each figure, start by creat our function and fit it with one of the sheets (first part of fitting test).
 Then in the second part the auto key read whole datas and prepaire the fit for each plot inside the loop, as the exponential function.
 
-![config](./images/fit example.png)
+
+![config](./images/fit-example.png)
 
 ![config](./images/flight-peaks.png)
