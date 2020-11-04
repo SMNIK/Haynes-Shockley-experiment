@@ -59,7 +59,7 @@ Important fields are: ***lifetime, drift velocity, electric field***
 2) The second point is to creat the auto key that read the excel file with browser (auto-plot-button.py and ...button2.py).
 3) in the third part the idea is the key knows any x and y sheet of any file and plot it automaticly.
 
-###The fit files
+### The fit files
 For creat fit for each figure, start by creat our function and fit it with one of the sheets (first part of fitting test).
 Then in the second part the auto key read whole datas and prepaire the fit for each plot inside the loop, as the exponential function.
 
