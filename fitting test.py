@@ -10,7 +10,7 @@ Created on Tue Nov  3 17:46:21 2020
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import asarray as ar,exp
+#from scipy import asarray as ar,exp
 from scipy.optimize import curve_fit
 
 sixth = pd.read_excel(r'/total-datas.xlsx', '50v')
@@ -25,7 +25,7 @@ n = len(x)                          #the number of data
 mean = sum(x*y)/n                   #note this correction
 sigma = sum(y*(x-mean)**2)/n        #note this correction
 def gauss(x,a,x0,sigma):
-    return (a*exp(-(x-x0)**2/(2*sigma**2)))
+    return (a*np.exp(-(x-x0)**2/(2*sigma**2)))
 #print()
 popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
 plt.plot(x,y)
@@ -46,7 +46,7 @@ print(d)
 
 
 
-#_______________________________________________#
+# _*_____________________________________________*_ #
 
 
 
@@ -57,7 +57,7 @@ from scipy.optimize import curve_fit
 import xlrd
 import tkinter as tk
 from tkinter import filedialog
-
+import numpy as np
 """ 
 In this file, we can import an Excel file by the key, and at the end
 Create a fit function for each figure.
@@ -87,11 +87,9 @@ def getExcel():
         plt.title('fit-black curve (Gaussian)')
         plt.legend(sheetNames, fontsize=10, loc='upper right')
     
-"""
-Now the top def and loop read each sheet and plot, so now we just need
-to call the data of each sheet as x and y column to create fit.
-the match a fit function and its coefficients.
-"""
+
+# Now the top def and loop read each sheet and plot, so now we just need to call the data of each sheet as x and y column to create fit. the match a fit function and its coefficients. 
+
         x = SMN['x']
         y = SMN['y']
         
@@ -99,7 +97,7 @@ the match a fit function and its coefficients.
         mean = sum(x*y)/n                   #note this correction
         sigma = sum(y*(x-mean)**2)/n        #note this correction
         def gauss(x,a,x0,sigma):
-            return (a*exp(-(x-x0)**2/(2*sigma**2)))
+            return (a*np.exp(-(x-x0)**2/(2*sigma**2)))
         #print()
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
         print(gauss)
