@@ -58,13 +58,14 @@ from scipy.optimize import curve_fit
 import xlrd
 import tkinter as tk
 from tkinter import filedialog
-import numpy as np
+#import numpy as np
 """ 
 In this file, we can import an Excel file by the key, and at the end
 Create a fit function for each figure.
 """
 
 root = tk.Tk()
+# provide the window size and background-color of the key
 canvas1 = tk.Canvas(root, width=200, height=200, bg='lightgrey')
 canvas1.pack()
 
@@ -75,11 +76,15 @@ excel sheets and plot them.
 # command def to clear the file by the key
 def getExcel():
     global SMN
+    # let the machine choose a file and import it as the excel file
     import_file_path = filedialog.askopenfilename()
     xls = xlrd.open_workbook(import_file_path, on_demand=True)
+    # for a file with different sheets and note on the plot 
     sheetNames = xls.sheet_names()
+    # read each sheet separately and plot them together
     for i in sheetNames:
         SMN = pd.read_excel(import_file_path, i)
+        # I separate useful data from useless noises (declare rows)
         SMN = SMN.iloc[400:3700]
         print(i) # if put SMN, the console shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key, so plot is ready
         #plt.plot(SMN['x'], SMN['y'])
@@ -93,13 +98,16 @@ def getExcel():
 
         x = SMN['x']
         y = SMN['y']
-        
-        n = len(x)                          #the number of data
-        mean = sum(x*y)/n                   #note this correction
-        sigma = sum(y*(x-mean)**2)/n        #note this correction
+        # for nomalize the data we need the number of data and mean
+        n = len(x)    
+        # mean should be include the sum of time multiply by its voltage                     
+        mean = sum(x*y)/n 
+        # and the sigma coefficient is the total normalization coefficient for each drift              
+        sigma = sum(y*(x-mean)**2)/n  
+        # now use the Gaussian function and the coefficients to fit with the figures
         def gauss(x,a,x0,sigma):
             return (a*np.exp(-(x-x0)**2/(2*sigma**2)))
-        #print()
+        # x0 is t
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
         #print(gauss)
         #plt.plot(x,y)

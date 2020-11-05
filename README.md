@@ -3,7 +3,8 @@
 
 It was the first experiment to measure directly the drift velocity, and thus mobility, of minority carriers. Previously the drift velocity was determined with the Hall effect, which was an direct method whose results could not be easily interpreted.
 In the original H-S experiment an electric field is created along a small bar of a doped semiconductor (cut from a single crystal ingot) by applying an experimental voltage across the bar ends. Then a short pulse injects excess minority charge carriers into the sample which are successively swept along the bar by the electric field. By detecting and analyzing the excess-charge pulse during its travel, the drift velocity, the diffusion constant and lifetime may be calculated.
-### More Study
+>
+#### More Study
 <a href="https://www.labtrek.it/haynes-shockley-experiment/">labtrek</a><br>
 <a href="https://aip.scitation.org/doi/pdf/10.1063/1.334081">aip.scitation.org</a>
 ### Goals
