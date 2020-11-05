@@ -32,7 +32,7 @@ Important fields are: ***lifetime, drift velocity, electric field***
 <head>
 </head>
 <body>
-  <h3>Function Table</h3>
+  <h3>Information that can be extracted from the pulse shape and position</h3>
   <table>
     <tr>
       <td>the drift velocity</td>
