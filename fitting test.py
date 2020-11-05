@@ -39,7 +39,8 @@ c=sixth['y'].idxmax()
 print(c)
 
 d=sixth['x'][c]
-print(d)
+print(d) # find the relevant value of time to max. voltage (however from dry data) 
+# the goal is find the values or coefficients of fit gauss figure
 
 #b=sixth.iloc[a]
 #print(b)
@@ -85,7 +86,7 @@ def getExcel():
         plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
         plt.ylabel('Voltage (v)')
         plt.title('fit-black curve (Gaussian)')
-        plt.legend(sheetNames, fontsize=10, loc='upper right')
+        #plt.legend(sheetNames, fontsize=10, loc='upper right')
     
 
 # Now the top def and loop read each sheet and plot, so now we just need to call the data of each sheet as x and y column to create fit. the match a fit function and its coefficients. 
@@ -100,11 +101,11 @@ def getExcel():
             return (a*np.exp(-(x-x0)**2/(2*sigma**2)))
         #print()
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
-        print(gauss)
-        plt.plot(x,y,label=i)
-        plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
+        #print(gauss)
+        #plt.plot(x,y)
+        plt.plot(x,gauss(x,*popt),color='blue',linewidth=2, label=i)
         plt.legend()
-        print()
+        print(*popt) # This is the gauss coefficients for calculations
 """
 Now we finish it with closing the key.
 for showing the plots and fits after coplete calculation close the key
