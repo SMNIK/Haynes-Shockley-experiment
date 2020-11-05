@@ -15,6 +15,8 @@ In the original H-S experiment an electric field is created along a small bar of
 >- measuring of carrier's lifetime.
 
 ![config](./images/image.jpg)
+>The diagram of the H-S experiment
+
 
 ***photo electric effect (laser beam) causes the drift mobility of minority charge carriers sweeps length of the semiconductor.***
 
