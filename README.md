@@ -75,7 +75,15 @@ An analytical interpretation of the pulse shape, based on the solution of the ti
 # Coding structure (or how to code)
 ### First step
 > How to code a simple project and improve it?
-1) The first point is considering that we have an excel file of data with few sheets, which we need to plot them as x and y axes. So, the first idea is the "flights.py" file, with repetitive lines. 
+1) The first point is considering that we have an excel file of data with few sheets, which we need to plot them as x and y axes. So, for the start we use a simple code as [flights](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/flights.py);, to read each sheet inside the excel file and plot them. However, rather than using the Repetitious lines we can use loop like 'for' or 'while'; For example:
+'''
+python
+      for i in ("14.4v","20.9v","28.1v","36.4v","44.7v"):
+          i = pd.read_excel(<excel file address>,i)
+          i = i.iloc[250:4238] >
+          plt.plot(i['x'],i['y'])
+
+''' 
 2) The second point is to creat the auto key that read the excel file with browser (auto-plot-button.py and ...button2.py).
 3) in the third part the idea is the key knows any x and y sheet of any file and plot it automaticly.
 
