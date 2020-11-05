@@ -58,7 +58,7 @@ from scipy.optimize import curve_fit
 import xlrd
 import tkinter as tk
 from tkinter import filedialog
-#import numpy as np
+import numpy as np
 """ 
 In this file, we can import an Excel file by the key, and at the end
 Create a fit function for each figure.
@@ -110,8 +110,8 @@ def getExcel():
         # x0 is t
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
         #print(gauss)
-        #plt.plot(x,y)
-        plt.plot(x,gauss(x,*popt),color='blue',linewidth=2, label=i)
+        plt.plot(x,y,label=i)
+        plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
         plt.legend()
         print(*popt) # This is the gauss coefficients for calculations
 """
