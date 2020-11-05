@@ -24,8 +24,9 @@ def getCsv():
     global SMN
     import_file_path = filedialog.askopenfilename()
     CSV = csv.open_workbook(import_file_path, on_demand=True)
-    SMN = pd.read_CSV(import_file_path,CSV.sheet_names())
-    with open(root.mainloop(SMN),"r") as i:
+    SMN = pd.read.csv(import_file_path,CSV.sheet_names())
+        
+    with open(root.mainloop(),"r") as i:
         rawdata=list(csv.reader(i,delimiter=","))
         
     data = np.array(rawdata[19:],dtype=np.float)

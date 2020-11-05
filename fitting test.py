@@ -51,7 +51,7 @@ print(d) # find the relevant value of time to max. voltage (however from dry dat
 
 
 
-# SECOND PART 
+# SECOND PART is the completed viwe of the top solution
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
