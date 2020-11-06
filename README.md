@@ -83,7 +83,7 @@ An analytical interpretation of the pulse shape, based on the solution of the ti
           plt.plot(i['x'],i['y'])
 
 ``` 
-2)In general we go more far and use ***tkinter*** library for providing a browser key to choose any file that we want to plot. The basic code start by [auto-plot-button](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button.py); and as you see in this file we have duplicate lines too. finally, in [auto-plot-button2](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button2.py); and completely in [Button(complete)](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/Button(complete).py); we can replace repetitive lines by more professional commands.
+2) In general we go more far and use ***tkinter*** library for providing a browser key to choose any file that we want to plot. The basic code start by [auto-plot-button](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button.py); and as you see in this file we have duplicate lines too. finally, in [auto-plot-button2](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button2.py); and completely in [Button(complete)](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/Button(complete).py); we can replace repetitive lines by more professional commands.
 3) in the third part the idea is the key knows any x and y sheet of any file and plot it automaticly.
 
 ### The fit files
