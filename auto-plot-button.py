@@ -39,7 +39,7 @@ def getExcel ():
     SMN4 = SMN4.iloc[250:4238] 
     plt.plot(SMN4['x'],SMN4['y'])
     
-    SMN6 = pd.read_excel (import_file_path, sheet_name='50v')
+    SMN6 = pd.read_excel (import_file_path, sheet_name='44.7v')
     print(SMN6)
     SMN6 = SMN6.iloc[250:4238]
     plt.plot(SMN6['x'],SMN6['y'])
@@ -48,7 +48,7 @@ def getExcel ():
     plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
     plt.ylabel('Voltage (v)')
     plt.title('non-fit')
-    plt.legend(["14.4v", "20.9v", "28.1v", "36.4v", "50v"], fontsize=10, loc='upper right')
+    plt.legend(["14.4v", "20.9v", "28.1v", "36.4v", "44.7v"], fontsize=10, loc='upper right')
 
 # set directory    
 browseButton_Excel = tk.Button(text='Select Excel file', command=getExcel, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
