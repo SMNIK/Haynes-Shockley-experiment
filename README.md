@@ -78,13 +78,20 @@ An analytical interpretation of the pulse shape, based on the solution of the ti
 1) The first point is considering that we have an excel file of data with few sheets, which we need to plot them as x and y axes. So, for the start we use a simple code as [flights](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/flights.py) to read each sheet inside the excel file and plot them. However, rather than using the duplicate lines we can use loop like 'for' or 'while'; For example:
 ```python
       for i in ("14.4v","20.9v","28.1v","36.4v","44.7v"):
-          i = pd.read_excel(<excel file`s and name address>,i)
+          i = pd.read_excel(<excel file`s name and address>,i)
           i = i.iloc[250:4238] 
           plt.plot(i['x'],i['y'])
 
 ``` 
-2) In general we go more far and use ***tkinter*** library for providing a browser key to choose any file that we want to plot. The basic code start by [auto-plot-button](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button.py) and as you see in this file we have duplicate lines too. finally, in [auto-plot-button2](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button2.py); and completely in [Button(complete)](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/Button(complete).py) we can replace repetitive lines by more professional commands.
-3) in the third part the idea is the key knows any x and y sheet of any file and plot it automaticly.
+2) In general we go more far and use ***tkinter*** library for providing a browser key to choose any file that we want to plot. The basic code start by [auto-plot-button](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button.py) and as you see in this file we have duplicate lines too. finally, in [auto-plot-button2](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/auto-plot-button2.py) and completely in [Button(complete)](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/Button(complete).py) we can replace repetitive lines by more professional commands.
+```python
+    for i in sheetNames:
+        SMN = pd.read_excel(import_file_path, i)
+        SMN = SMN.iloc[250:4238]
+        print(i)
+```
+with the above command, we do not need to write name of eache sheets in the code. The machine completely read sheet's name and know each plot belongs to each name. So, the button code can use for any excel file with many different sheets and names.
+3) In the following step, I will provide the [Gaussian](https://en.wikipedia.org/wiki/Gaussian_function) fit as a fit function to use its coefficients for the further calculations.
 
 ### The fit files
 For creat fit for each figure, start by creat our function and fit it with one of the sheets (first part of fitting test).
