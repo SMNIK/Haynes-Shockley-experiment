@@ -106,14 +106,15 @@ def getExcel():
         sigma = sum(y*(x-mean)**2)/n  
         # now use the Gaussian function and the coefficients to fit with the figures
         def gauss(x,a,x0,sigma):
-            return (a*np.exp(-(x-x0)**2/(2*sigma**2)))
+            return (a*np.exp(-0.5*((x-x0)/sigma)**2))
         # x0 is t
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
         #print(gauss)
         plt.plot(x,y,label=i)
         plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
         plt.legend()
-        print(*popt) # This is the gauss coefficients for calculations
+        print(popt) # This is the gauss coefficients for calculations
+
 """
 Now we finish it with closing the key.
 for showing the plots and fits after coplete calculation close the key
