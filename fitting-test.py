@@ -107,7 +107,7 @@ def getExcel():
         # now use the Gaussian function and the coefficients to fit with the figures
         def gauss(x,a,x0,sigma):
             return (a*np.exp(-0.5*((x-x0)/sigma)**2))
-        # x0 is t
+        # x0 is the time of the maximum fly
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
         #print(gauss)
         plt.plot(x,y,label=i)
