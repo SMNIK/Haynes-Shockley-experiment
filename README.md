@@ -118,8 +118,16 @@ As you see, the arguments to the function is x (in excel file, it shows time col
 popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
 ```
 The curve_fit function returns two items, which we can popt and pcov. The popt arqument are the best-fit parameters for a and x0. <br>
-And then you can use 'plt' command to plot fit on each plot.
-But, you know, this is the first step 
+And then we can use 'plt' command to plot fit on each plot.
+But, you know that this is just the first step of the way to find standard coefficients. 
+For finding the time of each maximum peak (x0) from fit value, write as below:
+```
+t = popt[1]
+```
+and for "Area", normalization of popt[2] required:
+```python
+Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2)
+```
 
 ![image](./images/fit-example.png)
 
