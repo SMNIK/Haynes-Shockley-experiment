@@ -98,7 +98,7 @@ According to the Gaussian function:
 
 ![Gauss](https://latex.codecogs.com/gif.latex?{\displaystyle&space;f(x)=a\cdot&space;\exp&space;{\left(-{\frac&space;{(x-b)^{2}}{2c^{2}}}\right)}})
 
-the a,b,c coefficients clear the value of the maximum, mean and the mean width of the drift. However, first we need to normalize our data by below computation:
+the a,b,c coefficients clear the value of the maximum, mean and the mean width of the drift. However, first we need to normalize the data by below computation:
 ```python
 n = len(x)
 mean = sum(x*y)/n
