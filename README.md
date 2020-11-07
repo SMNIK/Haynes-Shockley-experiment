@@ -104,10 +104,22 @@ n = len(x)
 mean = sum(x*y)/n
 sigma = sum(y*(x-mean)**2)/n
 ```  
-However, rather than c, here I write sigma (or may be in some explanations from other tutorial the gaussian function has different names).
+However, rather than c, here I write sigma and for b, I wirte x0 (or may be in some explanations from other tutorial the gaussian function has different names).
 
+For the defining the gaussian function and coefficients the bellow command lines highly recommended (or the same):
+```python
+def gauss(x,a,x0,sigma):
+  return (a*np.exp(-0.5*((x-x0)/sigma)**2))
+popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
 
-
+```
+As you see, the arguments to the function is x (in excel file, it shows time column), followed by parameters. Now it is good time to call curve_fit to find the best-fit parameters using a least-squares fit:
+```python
+popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
+```
+The curve_fit function returns two items, which we can popt and pcov. The popt arqument are the best-fit parameters for a and x0.
+and then you can use 'plt' command to plot fit on each plot.
+But, you know, this is the first step 
 
 ![image](./images/fit-example.png)
 
