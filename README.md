@@ -136,7 +136,7 @@ Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2)
 So, write some more command lines and calculate the other options that we need.
 Here we have the voltage values like the name of each sheet. Besides, we know that our code knows them as strings, not decimal.<br>
 Wow, sounds good, it looks like we should use a command trick to convert them to decimal numbers for our calculation. Because I think so your sheets' names are different and this type of coding lets you use this program for any file, however on the same scale.<br>
-*** use Regular expression operations library ***
+***use Regular expression operations library***
 ```python
 import re 
 I = [float(SMN) for SMN in re.findall(r'-?\d+\.?\d*', i)]
