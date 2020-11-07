@@ -117,8 +117,8 @@ As you see, the arguments to the function is x (in excel file, it shows time col
 ```python
 popt, pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
 ```
-The curve_fit function returns two items, which we can popt and pcov. The popt arqument are the best-fit parameters for a and x0.
-and then you can use 'plt' command to plot fit on each plot.
+The curve_fit function returns two items, which we can popt and pcov. The popt arqument are the best-fit parameters for a and x0. <br>
+And then you can use 'plt' command to plot fit on each plot.
 But, you know, this is the first step 
 
 ![image](./images/fit-example.png)
