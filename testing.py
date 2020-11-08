@@ -63,19 +63,23 @@ def getExcel():
             return (a*np.exp(-0.5*((x-x0)/sigma)**2))
         # x0 is the time of the maximum fly
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
-        #print(gauss)
+        #print(gauss) 
         plt.plot(x,y,label=i)
         plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
         plt.legend()
-        t = popt[1]
-        FWHM = np.sqrt(np.log(4))*2*popt[2]
-        d = 3
-        Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2)
-        I = [float(z) for z in re.findall(r'-?\d+\.?\d*', i)]
+        t = popt[1] # time of the peak (micro second)
+        delta_t = np.sqrt(np.log(4))*2*popt[2] # nirmalizaionm of mean drift by FWHM (micro second)
+        d = 3 # samle lenght (centimeter)
+        Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2) # (v micro s)
+        I = [float(smn) for smn in re.findall(r'-?\d+\.?\d*', i)]
         c = len(I)
-        for z in range(c):
-            E_s = I[z]/d
-        print(t,FWHM,Area,E_s) # This is the gauss coefficients for calculations
+        for smn in range(c):
+            E_s = I[smn]/d # the scale is voltage per centimeter
+        D = 0.35 # the distance of laser from a conductor
+        V_d = D*1e6/t # (cm/s)
+        mu = V_d/E_s # (cm^2/v s)
+        lnA = np.log(Area)
+        print(t,delta_t,Area,E_s,V_d,mu,lnA) # This is the gauss coefficients for calculations
 
 """
 Now we finish it with closing the key.
