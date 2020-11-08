@@ -12,6 +12,7 @@ import xlrd
 import tkinter as tk
 from tkinter import filedialog
 import numpy as np
+import re
 """ 
 In this file, we can import an Excel file by the key, and at the end
 Create a fit function for each figure.
@@ -42,7 +43,7 @@ def getExcel():
         print(i) # if put SMN, the console shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key, so plot is ready
         #plt.plot(SMN['x'], SMN['y'])
         plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
-        plt.ylabel('Voltage (v)')
+        plt.ylabel('Voltage_s (v)')
         plt.title('fit-black curve (Gaussian)')
         #plt.legend(sheetNames, fontsize=10, loc='upper right')
     
@@ -68,8 +69,13 @@ def getExcel():
         plt.legend()
         t = popt[1]
         FWHM = np.sqrt(np.log(4))*2*popt[2]
+        d = 3
         Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2)
-        print(t,FWHM,Area) # This is the gauss coefficients for calculations
+        I = [float(z) for z in re.findall(r'-?\d+\.?\d*', i)]
+        c = len(I)
+        for z in range(c):
+            E_s = I[z]/d
+        print(t,FWHM,Area,E_s) # This is the gauss coefficients for calculations
 
 """
 Now we finish it with closing the key.
