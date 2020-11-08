@@ -4,48 +4,77 @@ Created on Mon Nov  2 14:57:54 2020
 
 @author: masou
 """
-# if we want to use the base data as CSV
-
-import numpy as np
-import csv
-import matplotlib.pyplot as plt
-#from scipy.optimize import curve_fit
-import tkinter as tk
-import tkinter as filedialog
+# SECOND PART is the completed viwe of the top solution
 import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+import xlrd
+import tkinter as tk
+from tkinter import filedialog
+import numpy as np
+""" 
+In this file, we can import an Excel file by the key, and at the end
+Create a fit function for each figure.
+"""
 
-# Import csv file and save as the new table
 root = tk.Tk()
+# provide the window size and background-color of the key
 canvas1 = tk.Canvas(root, width=200, height=200, bg='lightgrey')
 canvas1.pack()
 
-
-def getCsv():
+"""
+we continue to code as the 'Button' file until the browser read all
+excel sheets and plot them.
+"""
+# command def to clear the file by the key
+def getExcel():
     global SMN
+    # let the machine choose a file and import it as the excel file
     import_file_path = filedialog.askopenfilename()
-    CSV = csv.open_workbook(import_file_path, on_demand=True)
-    SMN = pd.read.csv(import_file_path,CSV.sheet_names())
-        
-    with open(root.mainloop(),"r") as i:
-        rawdata=list(csv.reader(i,delimiter=","))
-        
-    data = np.array(rawdata[19:],dtype=np.float)
-    x = data[19:,0]
-    y =data[19:,1]
-    plt.figure(1,dpi=120)
-    plt.title("simple testing")
-    plt.x(rawdata[0][0])
-    plt.y(rawdata[0][1])
-    #plt.xlim(3,60) # control x-axis duration or range
-    #plt.ylim(-0.006,0.09) # control y-axis range 
-    #plt.xscale("log")
-    #plt.yscale("log")
-    plt.plot(x,y,lable="time over voltage")
+    xls = xlrd.open_workbook(import_file_path, on_demand=True)
+    # for a file with different sheets and note on the plot 
+    sheetNames = xls.sheet_names()
+    # read each sheet separately and plot them together
+    for i in sheetNames:
+        SMN = pd.read_excel(import_file_path, i)
+        # I separate useful data from useless noises (declare rows)
+        SMN = SMN.iloc[400:3700]
+        print(i) # if put SMN, the console shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key, so plot is ready
+        #plt.plot(SMN['x'], SMN['y'])
+        plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
+        plt.ylabel('Voltage (v)')
+        plt.title('fit-black curve (Gaussian)')
+        #plt.legend(sheetNames, fontsize=10, loc='upper right')
+    
 
-browseButton_Excel = tk.Button(text='Select Excel File', command=getCsv, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
+# Now the top def and loop read each sheet and plot, so now we just need to call the data of each sheet as x and y column to create fit. the match a fit function and its coefficients. 
+
+        x = SMN['x']
+        y = SMN['y']
+        # for nomalize the data we need the number of data and mean
+        n = len(x)    
+        # mean should be include the sum of time multiply by its voltage                     
+        mean = sum(x*y)/n 
+        # and the sigma coefficient is the total normalization coefficient for each drift              
+        sigma = sum(y*(x-mean)**2)/n  
+        # now use the Gaussian function and the coefficients to fit with the figures
+        def gauss(x,a,x0,sigma):
+            return (a*np.exp(-0.5*((x-x0)/sigma)**2))
+        # x0 is the time of the maximum fly
+        popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
+        #print(gauss)
+        plt.plot(x,y,label=i)
+        plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
+        plt.legend()
+        t = popt[1]
+        FWHM = np.sqrt(np.log(4))*2*popt[2]
+        Area = popt[0]*2*popt[2]*np.sqrt(np.pi/2)
+        print(t,FWHM,Area) # This is the gauss coefficients for calculations
+
+"""
+Now we finish it with closing the key.
+for showing the plots and fits after coplete calculation close the key
+"""
+browseButton_Excel = tk.Button(text='Select Excel File', command=getExcel, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
 canvas1.create_window(100, 100, window=browseButton_Excel)
-root.mainloop()
-
-
-
-
+root.mainloop() 
