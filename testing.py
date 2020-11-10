@@ -41,7 +41,7 @@ def getExcel():
         SMN = pd.read_excel(import_file_path, i)
         # I separate useful data from useless noises (declare rows)
         SMN = SMN.iloc[400:3700]
-        print(i) # if put SMN, the console shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key, so plot is ready
+        #print(i) # if put SMN, the console shows all datas of each sheet, but I shows the name of sheets, after the last name if you close the key, so plot is ready
         #plt.plot(SMN['x'], SMN['y'])
         plt.xlabel('Time (\u03BC s) \n Set of pulses collected at constant d=0.35cm, by varying the sweeping voltage $V_{s}$')
         plt.ylabel('Voltage_s (v)')
@@ -82,8 +82,7 @@ def getExcel():
         mu = V_d/E_s # and easily scale is (cm^2/v*s)
         lnA = np.log(Area)
         myList = [I[SMN],t,delta_t,Area,E_s,V_d,mu,lnA]
-        for man in range
-        #print(myList)
+        print(myList)
         #df = DataFrame (myList, columns=['V_s','t','dalta_t','Area','E_s','V_d','mu','lnA'])
         #print(myList)
         #time = myList[1]
@@ -92,7 +91,7 @@ def getExcel():
         #E_s = myList[4]
         #V_d = myList[5]
         #mu = myList[6]
-
+        
         #table_List = [myList[0],myList[1]]
         #df = DataFrame(table_List).transpose()
         #df.columns = ['voltage','time']
