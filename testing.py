@@ -90,8 +90,8 @@ def getExcel():
 # As import data from each loop and put them in the relevant index of the excel file, we need to create the if statement and check when the datasheet changes, the index number should be changed too.        
         
         if I[SMN]==14.4:
-            workbook = xlsxwriter.Workbook('D:/analyses.xlsx')
-            worksheet_analyses=workbook.add_worksheet('analyses')
+            workbook = xlsxwriter.Workbook('D:/analyses.xlsx') #you can choose any name 
+            worksheet_analyses=workbook.add_worksheet('analyses') #you can choose any name
             for j in range(8):
                 worksheet_analyses.write(1,j,myList[j])
         elif I[SMN]==20.9:
@@ -134,7 +134,7 @@ root.mainloop()
 # now the useful normalized data is in a new excel file and we can plot any part which we need
 # one of the most important plot is the logarithmic area depends on the time
 
-analyses = pd.read_excel(r'D:/analyses.xlsx','analyses')
+analyses = pd.read_excel(r'D:/analyses.xlsx','analyses') #you can choose any name
 time = analyses['t (\u03BC s)']
 lnA = analyses['lnA']
 plt.figure(2)
