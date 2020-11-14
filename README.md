@@ -175,6 +175,6 @@ Be careful, for the first and second step you can command ***plt.figure(1)*** an
 ![image](./images/t-lnA.png)
 
 ## conclusion
-<em>testing.py</em> is the complet version file of plot H-S experiment's data and calculates the gaussian fit for them. However, in complete version, you should prepare more tables and fits. But, it is easy from now.
+[testing](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/testing.py) is the complet version file of plot H-S experiment's data and calculates the gaussian fit for them. However, in complete version, you should prepare more tables and fits. But, it is easy from now.
 just manage your excel file and continue this way.
 It would be my pleasure if you will complete the code.
