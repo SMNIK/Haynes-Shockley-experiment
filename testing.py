@@ -14,6 +14,8 @@ import tkinter as tk
 from tkinter import filedialog
 import numpy as np
 import re
+import xlsxwriter
+
 """ 
 In this file, we can import an Excel file by the key, and at the end
 Create a fit function for each figure.
@@ -82,20 +84,42 @@ def getExcel():
         mu = V_d/E_s # and easily scale is (cm^2/v*s)
         lnA = np.log(Area)
         myList = [I[SMN],t,delta_t,Area,E_s,V_d,mu,lnA]
-        print(myList)
-        #df = DataFrame (myList, columns=['V_s','t','dalta_t','Area','E_s','V_d','mu','lnA'])
-        #print(myList)
-        #time = myList[1]
-        #delta_t = myList[2]
-        #A = myList[3]
-        #E_s = myList[4]
-        #V_d = myList[5]
-        #mu = myList[6]
+
+# As import datas from each loop and put them in the relevent index of excel file, we need to creat the if statement and check when the  data sheet changes, index number should be change too.
         
-        #table_List = [myList[0],myList[1]]
-        #df = DataFrame(table_List).transpose()
-        #df.columns = ['voltage','time']
-        #print(df)
+        if I[SMN]==14.4:
+            workbook = xlsxwriter.Workbook('D:/analyses.xlsx')
+            worksheet_analyses=workbook.add_worksheet('analyses')
+            for j in range(8):
+                worksheet_analyses.write(1,j,myList[j])
+        elif I[SMN]==20.9:
+            for j in range(8):
+                worksheet_analyses.write(2,j,myList[j])
+        elif I[SMN]==28.1:
+            for j in range(8):
+                worksheet_analyses.write(3,j,myList[j])
+        elif I[SMN]==36.4:
+            for j in range(8):
+                worksheet_analyses.write(4,j,myList[j])
+        elif I[SMN]==44.7:
+            for j in range(8):
+                worksheet_analyses.write(5,j,myList[j])
+        elif I[SMN]==50:
+            for j in range(8):
+                worksheet_analyses.write(6,j,myList[j])
+        else:
+            pass
+        print(I[SMN])
+    worksheet_analyses.write('A1','V(v)')
+    worksheet_analyses.write('B1','t (micro s)')
+    worksheet_analyses.write('C1','delta_t(micro s)')
+    worksheet_analyses.write('D1','A(v micro s)')
+    worksheet_analyses.write('E1','E_s(v/cm)')
+    worksheet_analyses.write('F1','V_d(cm/s)')
+    worksheet_analyses.write('G1','mu(cm^2/vs)')
+    worksheet_analyses.write('H1','lnA')
+    workbook.close()
+    
 """
 Now we finish it with closing the key.
 for showing the plots and fits after coplete calculation close the key
@@ -103,3 +127,4 @@ for showing the plots and fits after coplete calculation close the key
 browseButton_Excel = tk.Button(text='Select Excel File', command=getExcel, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
 canvas1.create_window(100, 100, window=browseButton_Excel)
 root.mainloop() 
+
