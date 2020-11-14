@@ -171,3 +171,10 @@ So using the <em>if</em> command as below:
 
 After saving them in the new file, so it is easy to prepare new plot of data. 
 Be careful, for the first and second step you can command ***plt.figure(1)*** and for the third, consider ***plt.figure(2)***. It causes that you have different plots in on py file.
+
+![image](./images/t-lnA.png)
+
+## conclusion
+<em>testing.py</em> is the complet version file of plot H-S experiment's data and calculates the gaussian fit for them. However, in complete version, you should prepare more tables and fits. But, it is easy from now.
+just manage your excel file and continue this way.
+It would be my pleasure if you will complete the code.
