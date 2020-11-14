@@ -126,6 +126,8 @@ And then we can use 'plt' command to plot fit on each signal.<br>
 
 ![image](./images/peaks-and-fits.png)
 
+![image](./images/fits.png)
+
 But, you know that this is just the first step of the way to find standard coefficients. 
 For finding the time of each maximum peak (x0) from fit value, write as below:
 ```
@@ -149,3 +151,23 @@ I = [float(SMN) for SMN in re.findall(r'-?\d+\.?\d*', i)]
 Go further and just write some functions to calculate drift velocity, sweep field, and electron mobility, which they are the functions from the first table (on the top).
 Totaly, this was the coding for open the excel file for ploting datas, then prepaire a good fit for each one and calculate the coefficients.
 For the next part, you should pick out each normalized data from loop and save them as a analyses (or any name that you prefer) excel file, not only for the analys table but also for ploting the logarithmic area as the time. 
+
+### Third step
+In this part, the important point is how save each raw data in different index of a new excel file and use as the new data for new plot (because when the first loop finishes the calculations of each cyrcle , then is erased them and save the next one till the last sheet)
+So using the <em>if</em> command as below:
+```python
+        if I[SMN]==14.4:
+            workbook = xlsxwriter.Workbook('D:/analyses.xlsx')
+            worksheet_analyses=workbook.add_worksheet('analyses')
+            for j in range(8):
+                worksheet_analyses.write(1,j,myList[j])
+        elif I[SMN]==20.9:
+        .
+        .
+        .
+```
+
+![image](./images/analyses.png)
+
+After saving them in the new file, so it is easy to prepare new plot of data. 
+Be careful, for the first and second step you can command ***plt.figure(1)*** and for the third, consider ***plt.figure(2)***. It causes that you have different plots in on py file.

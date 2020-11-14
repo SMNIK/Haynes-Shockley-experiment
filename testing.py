@@ -15,6 +15,7 @@ from tkinter import filedialog
 import numpy as np
 import re
 import xlsxwriter
+from scipy import polyfit , polyval
 
 """ 
 In this file, we can import an Excel file by the key, and at the end
@@ -66,6 +67,7 @@ def getExcel():
             return (a*np.exp(-0.5*((x-x0)/sigma)**2)) 
         # x0 is the time for the maximum fly
         popt,pcov = curve_fit(gauss,x,y,p0=[0,mean,sigma])
+        plt.figure(1)
         #print(gauss)
         plt.plot(x,y,label=i)
         plt.plot(x,gauss(x,*popt),color='black',linewidth=2)
@@ -85,7 +87,7 @@ def getExcel():
         lnA = np.log(Area)
         myList = [I[SMN],t,delta_t,Area,E_s,V_d,mu,lnA]
 
-# As import datas from each loop and put them in the relevent index of excel file, we need to creat the if statement and check when the  data sheet changes, index number should be change too.
+# As import data from each loop and put them in the relevant index of the excel file, we need to create the if statement and check when the datasheet changes, the index number should be changed too.        
         
         if I[SMN]==14.4:
             workbook = xlsxwriter.Workbook('D:/analyses.xlsx')
@@ -111,20 +113,36 @@ def getExcel():
             pass
         print(I[SMN])
     worksheet_analyses.write('A1','V(v)')
-    worksheet_analyses.write('B1','t (micro s)')
-    worksheet_analyses.write('C1','delta_t(micro s)')
-    worksheet_analyses.write('D1','A(v micro s)')
+    worksheet_analyses.write('B1','t (\u03BC s)')
+    worksheet_analyses.write('C1','delta_t(\u03BC s)')
+    worksheet_analyses.write('D1','A(v \u03BC s)')
     worksheet_analyses.write('E1','E_s(v/cm)')
     worksheet_analyses.write('F1','V_d(cm/s)')
     worksheet_analyses.write('G1','mu(cm^2/vs)')
     worksheet_analyses.write('H1','lnA')
     workbook.close()
+    plt.show()
     
 """
-Now we finish it with closing the key.
-for showing the plots and fits after coplete calculation close the key
+Now we finish it by closing the key.
+for showing the plots and fits after complete calculation close the key
 """
 browseButton_Excel = tk.Button(text='Select Excel File', command=getExcel, bg='blue', fg='yellow', font=('helvetica', 12, 'bold'))
 canvas1.create_window(100, 100, window=browseButton_Excel)
 root.mainloop() 
+
+# now the useful normalized data is in a new excel file and we can plot any part which we need
+# one of the most important plot is the logarithmic area depends on the time
+
+analyses = pd.read_excel(r'D:/analyses.xlsx','analyses')
+time = analyses['t (\u03BC s)']
+lnA = analyses['lnA']
+plt.figure(2)
+plt.scatter(time,lnA,color='g',marker='*',alpha=0.6,s=100)
+plt.xlabel('Time (\u03BC s)')
+plt.ylabel('lnA')
+plt.grid()
+sMn = polyfit(time,lnA,1)
+plt.plot(time,polyval(sMn,time))
+plt.show()
 
