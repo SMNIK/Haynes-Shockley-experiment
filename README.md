@@ -1,4 +1,5 @@
 # Haynes-Shockley experiment (Module 1)
+> [Haynes-Shockley-experiment-M2](https://github.com/SMNIK/Haynes-Shockley-experiment-M2)
 > The charge mobility in semiconductor materils.
 
 It was the first experiment to measure directly the drift velocity, and thus mobility, of minority carriers. Previously the drift velocity was determined with the Hall effect, which was an direct method whose results could not be easily interpreted.
