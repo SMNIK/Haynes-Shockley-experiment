@@ -174,7 +174,14 @@ Be careful, for the first and second step you can command ***plt.figure(1)*** an
 
 ![image](./images/t-lnA.png)
 
-## conclusion
+## Conclusion
 [testing](https://github.com/SMNIK/Haynes-Shockley-experiment/blob/master/testing.py) is the complet version file of plot H-S experiment's data and calculates the gaussian fit for them. However, in complete version, you should prepare more tables and fits. But, it is easy from now.
 just manage your excel file and continue this way.
 It would be my pleasure if you will complete the code.
+
+> differences between M1 and M2 are : 
+> in M1 you should calculate each voltage in seperat file, but M2 calculate all sheets (voltages) in on touche.
+> because of seperating files in M1, you can change each part as you prefer, but in M2 may be appeares error.
+> M1 is a sample of how the libraries in python work, for example we call plotting inside the fitPlot. However, in M2 it is not the same. The benefites of this method is that may be our library would be useful for other users.
+> [Module 2](https://github.com/SMNIK/Haynes-Shockley-experiment-M2)
+
